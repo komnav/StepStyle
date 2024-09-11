@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace StepStyle.WPF
 {
-    public class App : Application
+    public class App : System.Windows.Application
     {
         readonly MainWindow mainWindow;
 

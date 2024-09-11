@@ -9,20 +9,18 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    public class ShoeDbContext() : DbContext
+    public class ShoeDbContext(DbContextOptions dbContext) : DbContext(dbContext)
     {
-        private const string ConnectionString =
-            "Host=localhost;Port=5432;Database=erm_db;Username=postgres;Password=admin;Pooling=true";
+
 
         public DbSet<User> Users { get; set; }
         public DbSet<Shoe> Shoes { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseNpgsql(ConnectionString);
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-            => modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
     }
 }
 

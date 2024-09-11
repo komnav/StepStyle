@@ -1,4 +1,5 @@
-﻿using Application.Services;
+﻿using Application;
+using Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace StepStyle.WPF
         {
             services.AddSingleton<App>();
             services.AddSingleton<MainWindow>();
-            services.AddSingleton<UserService>();
+            services.AddApplicationServices();
 
             return services;
         }

@@ -9,6 +9,6 @@ namespace Application.Repositories
 {
     public interface IUserRepository
     {
-        User GetUser(string userName, string password);
+        User? GetUser(string userName, string password);
     }
 }
