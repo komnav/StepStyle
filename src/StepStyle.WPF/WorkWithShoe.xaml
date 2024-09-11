@@ -1,0 +1,31 @@
+﻿<Window x:Class="StepStyle.WPF.WorkWithShoe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StepStyle.WPF"
+        mc:Ignorable="d"
+        Title="WorkWithShoe" Height="500" Width="800">
+    <Grid>
+        <Border MinWidth="400" Margin="15,0,15,0" Background="AliceBlue" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20" Grid.ColumnSpan="2" >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="DarkBlue" ShadowDepth="0"></DropShadowEffect>
+            </Border.Effect>
+            <Border MinWidth="200" Margin="10,0,10,0" Background="CadetBlue" VerticalAlignment="Center" Padding="15" MaxWidth="350" 
+                    CornerRadius="10" Grid.ColumnSpan="1">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="Azure" ShadowDepth="0"></DropShadowEffect>
+                </Border.Effect>
+                <StackPanel>
+
+                    <Button Content="Create a new shoe" FontWeight="Bold" Margin="0 20" Background="Azure" BorderBrush="Aqua" />
+                    <Button Content="Show all shoe" FontWeight="Bold" Margin="0 20" Background="Beige" BorderBrush="Aqua"/>
+                    <Button Content="Show shoe by id" FontWeight="Bold" Margin="0 20" Background="White" BorderBrush="Aqua"/>
+
+
+                </StackPanel>
+            </Border>
+           
+        </Border>
+    </Grid>
+</Window>

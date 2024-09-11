@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure
 {
-    public class ShoeDbContext : DbContext
+    public class ShoeDbContext() : DbContext
     {
         private const string ConnectionString =
             "Host=localhost;Port=5432;Database=erm_db;Username=postgres;Password=admin;Pooling=true";
