@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace StepStyle.WPF
 {
@@ -18,9 +19,32 @@ namespace StepStyle.WPF
         {
             services.AddSingleton<App>();
             services.AddSingleton<LoginView>();
-            services.AddTransient<LoginViewModel>();
+            services.AddViews();
+            services.AddViewModels();
             services.AddApplicationServices();
             services.AddInfrastructureServices();
+            return services;
+        }
+
+        public static IServiceCollection AddViews(this IServiceCollection services)
+        {
+            var allViews = typeof(ServiceCollectionExtensions).Assembly.GetExportedTypes()
+                .Where(s => s.BaseType == typeof(Window) && s != typeof(LoginView));
+            foreach (var view in allViews)
+            {
+                services.AddTransient(view);
+            }
+            return services;
+        }
+
+        public static IServiceCollection AddViewModels(this IServiceCollection services)
+        {
+            var allViewModels = typeof(ServiceCollectionExtensions).Assembly.GetExportedTypes()
+                 .Where(s => s.BaseType == typeof(BaseViewModel));
+            foreach (var viewModel in allViewModels)
+            {
+                services.AddTransient(viewModel);
+            }
             return services;
         }
     }

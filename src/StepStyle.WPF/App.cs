@@ -15,6 +15,7 @@ namespace StepStyle.WPF
         public App(LoginView loginView)
         {
             this.loginView = loginView;
+            ShutdownMode = ShutdownMode.OnLastWindowClose;
         }
 
         protected override void OnStartup(StartupEventArgs e)

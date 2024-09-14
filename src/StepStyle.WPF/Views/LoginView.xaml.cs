@@ -24,7 +24,7 @@ namespace StepStyle.WPF.Views
         {
             InitializeComponent();
             DataContext = loginViewModel;
-            loginViewModel.OnRequestClose += (s, e) =>  Close();
+            loginViewModel.OnRequestClose += (s, e) =>  Hide();
         }
     }
 }

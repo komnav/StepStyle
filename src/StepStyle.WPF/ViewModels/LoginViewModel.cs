@@ -9,10 +9,13 @@ namespace StepStyle.WPF.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         private readonly IUserService _userService;
+        private readonly MainWindow _mainWindow;
 
-        public LoginViewModel(IUserService userService)
+        public LoginViewModel(IUserService userService, MainWindow mainWindow)
         {
             _userService = userService;
+            _mainWindow = mainWindow;
+
         }
 
         public string UserName { get; set; }
@@ -24,8 +27,7 @@ namespace StepStyle.WPF.ViewModels
             var userExists = _userService.Login(UserName, Password);
             if (userExists)
             {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
+                _mainWindow.Show();
                 Close();
             }
             else
