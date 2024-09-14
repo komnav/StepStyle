@@ -12,6 +12,11 @@ namespace Infrastructure.Repositories
     {
         private readonly ShoeDbContext _context;
 
+        public UserRepository(ShoeDbContext shoeDbContext)
+        {
+            _context = shoeDbContext;
+        }
+
         public User? GetUser(string userName, string password)
         {
             var pass = _context.Users.FirstOrDefault(x => x.UserName == userName && x.Password == password);

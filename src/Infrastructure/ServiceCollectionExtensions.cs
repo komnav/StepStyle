@@ -9,9 +9,8 @@ namespace Infrastructure
     {
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
         {
-
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddDbContext<ShoeDbContext>(options => options.UseSqlite("Data Source=C:\\Repos\\StepStyle\\DbContext.db"));
+            services.AddDbContext<ShoeDbContext>(options => options.UseSqlite("Data Source=shoes.db"));
 
             return services;
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StepStyle.WPF.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,17 +10,16 @@ namespace StepStyle.WPF
 {
     public class App : System.Windows.Application
     {
-        readonly MainWindow mainWindow;
+        readonly LoginView loginView;
 
-        // через систему внедрения зависимостей получаем объект главного окна
-        public App(MainWindow mainWindow)
+        public App(LoginView loginView)
         {
-            this.mainWindow = mainWindow;
+            this.loginView = loginView;
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            mainWindow.Show();  // отображаем главное окно на экране
+            loginView.Show(); 
             base.OnStartup(e);
         }
     }

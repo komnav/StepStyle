@@ -1,6 +1,9 @@
 ﻿using Application;
 using Application.Services;
+using Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using StepStyle.WPF.ViewModels;
+using StepStyle.WPF.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +17,10 @@ namespace StepStyle.WPF
         public static IServiceCollection AddWpfServices(this IServiceCollection services)
         {
             services.AddSingleton<App>();
-            services.AddSingleton<MainWindow>();
+            services.AddSingleton<LoginView>();
+            services.AddTransient<LoginViewModel>();
             services.AddApplicationServices();
-
+            services.AddInfrastructureServices();
             return services;
         }
     }
