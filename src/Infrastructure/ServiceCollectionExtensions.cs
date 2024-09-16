@@ -11,7 +11,8 @@ namespace Infrastructure
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddDbContext<ShoeDbContext>(options => options.UseSqlite("Data Source=shoes.db"));
-
+            services.AddScoped<ITypeOfCatamaranRepository, TypeOfCatamaranRepository>();
+            services.AddDbContext<ShoeDbContext>(options => options.UseSqlite("Data Source=shoes.db"));
             return services;
         }
     }

@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:StepStyle.WPF.Views"
         mc:Ignorable="d"
         WindowState="Maximized"
-        Title="Вход" Height="450" Width="800">
+        Title="Вход" Height="450" Width="1000">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,28 +18,25 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid Background="#ffdadada">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="116*"/>
-            <RowDefinition Height="101*"/>
-        </Grid.RowDefinitions>
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="331*"/>
-            <ColumnDefinition Width="169*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Border MinWidth="400" Margin="15,88,15,0" Background="White" VerticalAlignment="Top" Padding="30" MaxWidth="550" CornerRadius="20" Grid.ColumnSpan="2" Grid.RowSpan="2" >
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"></DropShadowEffect>
+        <Image Grid.Column="0" Source="/resources/welcome.jpg" Stretch="UniformToFill" 
+            VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center"
+            Padding="30" MaxWidth="550" CornerRadius="20" Grid.Column="1">
+            <Border.Effect >
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0" ></DropShadowEffect>
             </Border.Effect>
             <StackPanel>
-                <TextBlock Text="Для входа введите пароль" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
-                <TextBox Text="{Binding UserName}" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Text="{Binding Password}" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                <Button Command="{Binding LoginCommand}" Content="Вход" Margin="0 20" />
+                <TextBox Text="{Binding UserName}" materialDesign:HintAssist.Hint="Введите логин" FontSize="18" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TextBox_TextChanged"/>
+                <TextBox Text="{Binding Password}" materialDesign:HintAssist.Hint="Введите пароль" FontSize="18" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <Button Command="{Binding LoginCommand}" Foreground="White" Content="Войты" Margin="0 20"  MaxWidth="300"  />
 
             </StackPanel>
         </Border>
-
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using StepStyle.WPF.ViewModels;
+﻿using Microsoft.EntityFrameworkCore;
+using StepStyle.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,20 +17,16 @@ using System.Windows.Shapes;
 namespace StepStyle.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for ModelCatamarans.xaml
     /// </summary>
-    public partial class LoginView : Window
+    public partial class ModelCatamarans : Window
     {
-        public LoginView(LoginViewModel loginViewModel)
+        public ModelCatamarans(CatamaranViewModel catamaranView)
         {
             InitializeComponent();
-            DataContext = loginViewModel;
-            loginViewModel.OnRequestClose += (s, e) =>  Hide();
+            DataContext = catamaranView;
+            catamaranView.OnRequestClose += (s, e) => Hide();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }

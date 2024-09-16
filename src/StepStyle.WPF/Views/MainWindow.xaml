@@ -18,6 +18,78 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <TextBlock Text="This is the main" VerticalAlignment="Center" HorizontalAlignment="Center" />
+    <Grid>
+        <!-- Определение колонок -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Правая часть (с заголовком и таблицей бронирований) -->
+        <Grid Grid.Column="1" Background="White">
+
+            <!-- Определение строк -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок "Просмотр забронированного" -->
+            <Grid Grid.Row="0" Background="#667AEA">
+                <ListBoxItem FontSize="25" Foreground="White" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Center">
+                    Просмотр забронированного
+                </ListBoxItem>
+            </Grid>
+
+            <!-- Таблица с данными о бронированиях -->
+            <Grid Grid.Row="1">
+                <!-- Фильтрация по типу катамарана -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
+                    <Label Content="Фильтр по типу катамарана:" VerticalAlignment="Center"/>
+                    <ComboBox Name="CatamaranFilterComboBox" Width="150" Margin="10,0,0,0" SelectionChanged="CatamaranFilterComboBox_SelectionChanged">
+                        <ComboBoxItem Content="Все" IsSelected="True"/>
+                        <ComboBoxItem Content="Двухместный"/>
+                        <ComboBoxItem Content="Трёхместный"/>
+                        <ComboBoxItem Content="Четырёхместный"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- Таблица с данными -->
+                <DataGrid Name="BookingsDataGrid" AutoGenerateColumns="False" CanUserSortColumns="True" Margin="10,50,10,10" 
+                      IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow">
+                    <!-- Колонки -->
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="*"/>
+                        <DataGridTextColumn Header="Время" Binding="{Binding Time}" Width="*"/>
+                        <DataGridTextColumn Header="Тип катамарана" Binding="{Binding CatamaranType}" Width="*"/>
+                        <DataGridTextColumn Header="ФИО клиента" Binding="{Binding ClientName}" Width="*"/>
+                        <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}" Width="*"/>
+                        <DataGridTextColumn Header="Серия паспорта" Binding="{Binding PassportSeries}" Width="*"/>
+                        <DataGridTextColumn Header="Номер паспорта" Binding="{Binding PassportNumber}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+
+        <!-- Левая часть (с меню) -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="/resources/icon.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="UniformToFill"/>
+
+            <Grid Grid.Row="1" Background="#667AEA">
+                <ListBox>
+                    <ListBoxItem Foreground="White" FontSize="18" Margin="3" FontWeight="Bold">Новая бронь</ListBoxItem>
+                    <!--  <ListBoxItem Foreground="White" FontSize="18" Margin="3" FontWeight="Bold">Снять бронь</ListBoxItem>-->
+                    <ListBoxItem Foreground="White" FontSize="18" Margin="3" FontWeight="Bold">Редактирование брони</ListBoxItem>
+                    <ListBoxItem Foreground="White" FontSize="17" Margin="3" FontWeight="Bold">Информация для клиентов</ListBoxItem>
+                    <!--  <ListBoxItem Foreground="White" FontSize="17" Margin="3" FontWeight="Bold">Редактирование расписания</ListBoxItem> -->
+                </ListBox>
+            </Grid>
+        </Grid>
+    </Grid>
 </Window>
  

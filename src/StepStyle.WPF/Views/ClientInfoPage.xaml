@@ -1,0 +1,64 @@
+﻿<Window x:Class="StepStyle.WPF.Views.ClientInfoPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StepStyle.WPF.Views"
+        mc:Ignorable="d"
+        Title="ClientInfoPage" Height="660" Width="800">
+    <Grid  Background="#f0f4f8">
+        <StackPanel VerticalAlignment="Top" Margin="0,20,0,0">
+            <TextBlock Text="Информация для клиентов" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#4A6FA5" />
+            <Rectangle Height="2" Fill="#4A6FA5" HorizontalAlignment="Center" Width="300" Margin="0,10,0,0"/>
+        </StackPanel>
+        <Border Background="White" Padding="20" CornerRadius="15" BorderBrush="#4A6FA5" BorderThickness="2" Width="600" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap" FontSize="16" Foreground="#333" LineHeight="28">
+                Уважаемые клиенты!
+                Мы рады, что вы выбрали наши катамараны для своего отдыха. Пожалуйста, ознакомьтесь с основными правилами использования катамаранов:
+                </TextBlock>
+
+                <!-- Нумерованный список инструкций -->
+                <StackPanel Margin="20,10,0,0">
+                    <TextBlock TextWrapping="Wrap" FontSize="16" Foreground="#333" Margin="0,10,0,0">
+                    1. Перед выходом на воду убедитесь, что вы находитесь в спасательных жилетах.
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="16" Foreground="#333" Margin="0,10,0,0">
+                    2. Катание на катамаране разрешено только в светлое время суток.
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="16" Foreground="#333" Margin="0,10,0,0">
+                    3. Не перегружайте катамаран. Максимальная вместимость:
+                    </TextBlock>
+
+                    <!-- Подсписок для вместимости катамаранов -->
+                    <StackPanel Margin="20,0,0,0">
+                        <TextBlock TextWrapping="Wrap" FontSize="16" Foreground="#333" Margin="0,5,0,0">
+                        - Двухместный катамаран: 2 человека
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap" FontSize="16" Foreground="#333" Margin="0,5,0,0">
+                        - Трёхместный катамаран: 3 человека
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap" FontSize="16" Foreground="#333" Margin="0,5,0,0">
+                        - Четырёхместный катамаран: 4 человека
+                        </TextBlock>
+                    </StackPanel>
+
+                    <TextBlock TextWrapping="Wrap" FontSize="16" Foreground="#333" Margin="0,10,0,0">
+                    4. Категорически запрещено прыгать с катамарана в воду.
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="16" Foreground="#333" Margin="0,10,0,0">
+                    5. Управление катамараном осуществляется через педали и руль. Не допускайте детей младше 12 лет к самостоятельному управлению.
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="16" Foreground="#333" Margin="0,10,0,0">
+                    6. Возвращайте катамаран на базу вовремя, чтобы избежать штрафов.
+                    </TextBlock>
+                </StackPanel>
+
+                <!-- Заключительная строка -->
+                <TextBlock TextWrapping="Wrap" FontSize="16" Foreground="#333" Margin="0,20,0,0">
+                Мы желаем вам приятного отдыха и ждём вас снова!
+                </TextBlock>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

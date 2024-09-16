@@ -7,6 +7,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="resources\icon.jpg" />
+    <None Remove="resources\icon.png" />
+    <None Remove="resources\welcome.jpg" />
+  </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
@@ -14,5 +20,9 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\Application\Application.csproj" />
 	  <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Resource Include="resources\icon.png" />
+	  <Resource Include="resources\welcome.jpg" />
 	</ItemGroup>
 </Project>

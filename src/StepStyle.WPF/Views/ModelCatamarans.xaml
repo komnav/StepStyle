@@ -1,0 +1,65 @@
+﻿<Window x:Class="StepStyle.WPF.Views.ModelCatamarans"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StepStyle.WPF.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="ModelCatamarans" Height="600" Width="800">
+
+    <Grid>
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+       
+        <TextBlock Grid.Row="0" Text="Новая бронь" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+
+       
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400">
+           
+            <Label Content="Дата:"/>
+            <DatePicker Name="BookingDatePicker" SelectedDate="{Binding BookingDate}" Margin="0,0,0,10"/>
+
+           
+            <Label Content="Время:"/>
+            <ComboBox Name="TimeComboBox" Margin="0,0,0,10">
+                <ComboBoxItem Content="10:00"/>
+                <ComboBoxItem Content="12:00"/>
+                <ComboBoxItem Content="14:00"/>
+                <ComboBoxItem Content="16:00"/>
+                <ComboBoxItem Content="18:00"/>
+            </ComboBox>
+
+         
+            <Label Content="Тип катамарана:"/>
+            <ComboBox Name="CatamaranTypeComboBox" Margin="0,0,0,10">
+                <ComboBoxItem Content="Двухместный"/>
+                <ComboBoxItem Content="Трёхместный"/>
+                <ComboBoxItem Content="Четырёхместный"/>
+            </ComboBox>
+
+           
+            <Label Content="ФИО арендатора:"/>
+            <TextBox Name="ClientNameTextBox" Margin="0,0,0,10"/>
+
+          
+            <Label Content="Номер телефона:"/>
+            <TextBox Name="PhoneNumberTextBox" Margin="0,0,0,10"/>
+
+            
+            <Label Content="Серия паспорта:"/>
+            <TextBox Name="PassportSeriesTextBox" Margin="0,0,0,10"/>
+
+           
+            <Label Content="Номер паспорта:"/>
+            <TextBox Name="PassportNumberTextBox" Margin="0,0,0,10"/>
+
+           
+            <Button Content="Добавить бронь" Width="150" Height="40" HorizontalAlignment="Center" Click="AddBookingButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
