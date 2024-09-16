@@ -1,4 +1,5 @@
-﻿using Application.Services;
+﻿using Application.Repositories;
+using Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
@@ -8,7 +9,7 @@ namespace Application
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
-
+            services.AddScoped<IReservationService, ReservationService>();
             return services;
         }
     }

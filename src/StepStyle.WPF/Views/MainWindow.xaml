@@ -46,7 +46,7 @@
                 <!-- Фильтрация по типу катамарана -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
                     <Label Content="Фильтр по типу катамарана:" VerticalAlignment="Center"/>
-                    <ComboBox Name="CatamaranFilterComboBox" Width="150" Margin="10,0,0,0" SelectionChanged="CatamaranFilterComboBox_SelectionChanged">
+                    <ComboBox Name="CatamaranFilterComboBox" Width="150" Margin="10,0,0,0" >
                         <ComboBoxItem Content="Все" IsSelected="True"/>
                         <ComboBoxItem Content="Двухместный"/>
                         <ComboBoxItem Content="Трёхместный"/>
@@ -81,7 +81,7 @@
             <Image Source="/resources/icon.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="UniformToFill"/>
 
             <Grid Grid.Row="1" Background="#667AEA">
-                <ListBox>
+                <ListBox SelectedIndex="{Binding SelectedOption}">
                     <ListBoxItem Foreground="White" FontSize="18" Margin="3" FontWeight="Bold">Новая бронь</ListBoxItem>
                     <!--  <ListBoxItem Foreground="White" FontSize="18" Margin="3" FontWeight="Bold">Снять бронь</ListBoxItem>-->
                     <ListBoxItem Foreground="White" FontSize="18" Margin="3" FontWeight="Bold">Редактирование брони</ListBoxItem>

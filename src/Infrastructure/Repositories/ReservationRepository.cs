@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
-    public class TypeOfCatamaranRepository : ITypeOfCatamaranRepository
+    public class ReservationRepository : IReservationRepository
     {
         private readonly ShoeDbContext _context;
-        public TypeOfCatamaranRepository(ShoeDbContext context)
+        public ReservationRepository(ShoeDbContext context)
         {
             _context = context;
         }
 
-        public void Create(CatamaranModel catamaranModel)
+        public void Create(Reservation reservation)
         {
-            _context.Add(catamaranModel);
+            _context.Add(reservation);
             _context.SaveChanges();
         }
     }

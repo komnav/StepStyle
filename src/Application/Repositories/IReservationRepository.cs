@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Services
+namespace Application.Repositories
 {
-    public interface ICatamaranService
+    public interface IReservationRepository
     {
-        public bool Create(CatamaranModel catamaranModel);
+        public void Create(Reservation reservation);
     }
 }

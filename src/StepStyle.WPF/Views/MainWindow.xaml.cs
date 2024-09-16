@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using StepStyle.WPF.ViewModels;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,10 +18,10 @@ namespace StepStyle.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainViewModel mainViewModel)
         {
             InitializeComponent();
-            
+            DataContext = mainViewModel;
         }
 
         protected override void OnClosed(EventArgs e)

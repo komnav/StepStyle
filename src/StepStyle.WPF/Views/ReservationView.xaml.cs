@@ -19,13 +19,13 @@ namespace StepStyle.WPF.Views
     /// <summary>
     /// Interaction logic for ModelCatamarans.xaml
     /// </summary>
-    public partial class ModelCatamarans : Window
+    public partial class ReservationView : Window
     {
-        public ModelCatamarans(CatamaranViewModel catamaranView)
+        public ReservationView(ReservationViewModel viewModel)
         {
             InitializeComponent();
-            DataContext = catamaranView;
-            catamaranView.OnRequestClose += (s, e) => Hide();
+            DataContext = viewModel;
+            viewModel.OnRequestClose += (s, e) => Close();
         }
 
     }
