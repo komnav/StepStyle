@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Application.Services;
+using Domain;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
@@ -21,6 +23,15 @@ namespace StepStyle.WPF
                     services.AddWpfServices();
                 })
                 .Build();
+
+            using (var scope = host.Services.CreateScope())
+            {
+                var migrationService = host.Services.GetService<IMigrationService>();
+                migrationService.Migrate();
+
+                migrationService.CreateDefaultData();
+            }
+
             // получаем сервис - объект класса App
             var app = host.Services.GetService<App>();
             // запускаем приложения

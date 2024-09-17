@@ -19,14 +19,14 @@ namespace StepStyle.WPF.Views
     /// <summary>
     /// Interaction logic for ModelCatamarans.xaml
     /// </summary>
-    public partial class ReservationView : Window
+    public partial class ReservationView : UserControl, ILeftMenuView
     {
         public ReservationView(ReservationViewModel viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;
-            viewModel.OnRequestClose += (s, e) => Close();
         }
 
+        public string Title => "Новая бронь";
     }
 }

@@ -26,50 +26,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Правая часть (с заголовком и таблицей бронирований) -->
-        <Grid Grid.Column="1" Background="White">
-
-            <!-- Определение строк -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="7*"/>
-            </Grid.RowDefinitions>
-
-            <!-- Заголовок "Просмотр забронированного" -->
-            <Grid Grid.Row="0" Background="#667AEA">
-                <ListBoxItem FontSize="25" Foreground="White" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Center">
-                    Просмотр забронированного
-                </ListBoxItem>
-            </Grid>
-
-            <!-- Таблица с данными о бронированиях -->
-            <Grid Grid.Row="1">
-                <!-- Фильтрация по типу катамарана -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
-                    <Label Content="Фильтр по типу катамарана:" VerticalAlignment="Center"/>
-                    <ComboBox Name="CatamaranFilterComboBox" Width="150" Margin="10,0,0,0" >
-                        <ComboBoxItem Content="Все" IsSelected="True"/>
-                        <ComboBoxItem Content="Двухместный"/>
-                        <ComboBoxItem Content="Трёхместный"/>
-                        <ComboBoxItem Content="Четырёхместный"/>
-                    </ComboBox>
-                </StackPanel>
-
-                <!-- Таблица с данными -->
-                <DataGrid Name="BookingsDataGrid" AutoGenerateColumns="False" CanUserSortColumns="True" Margin="10,50,10,10" 
-                      IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow">
-                    <!-- Колонки -->
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="*"/>
-                        <DataGridTextColumn Header="Время" Binding="{Binding Time}" Width="*"/>
-                        <DataGridTextColumn Header="Тип катамарана" Binding="{Binding CatamaranType}" Width="*"/>
-                        <DataGridTextColumn Header="ФИО клиента" Binding="{Binding ClientName}" Width="*"/>
-                        <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}" Width="*"/>
-                        <DataGridTextColumn Header="Серия паспорта" Binding="{Binding PassportSeries}" Width="*"/>
-                        <DataGridTextColumn Header="Номер паспорта" Binding="{Binding PassportNumber}" Width="*"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-        </Grid>
+        <ContentControl Grid.Column="1" Content="{Binding ElementName=allItemsListBox, Path=SelectedItem}" />
 
         <!-- Левая часть (с меню) -->
         <Grid>
@@ -81,12 +38,12 @@
             <Image Source="/resources/icon.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="UniformToFill"/>
 
             <Grid Grid.Row="1" Background="#667AEA">
-                <ListBox SelectedIndex="{Binding SelectedOption}">
-                    <ListBoxItem Foreground="White" FontSize="18" Margin="3" FontWeight="Bold">Новая бронь</ListBoxItem>
-                    <!--  <ListBoxItem Foreground="White" FontSize="18" Margin="3" FontWeight="Bold">Снять бронь</ListBoxItem>-->
-                    <ListBoxItem Foreground="White" FontSize="18" Margin="3" FontWeight="Bold">Редактирование брони</ListBoxItem>
-                    <ListBoxItem Foreground="White" FontSize="17" Margin="3" FontWeight="Bold">Информация для клиентов</ListBoxItem>
-                    <!--  <ListBoxItem Foreground="White" FontSize="17" Margin="3" FontWeight="Bold">Редактирование расписания</ListBoxItem> -->
+                <ListBox x:Name="allItemsListBox" SelectedIndex="0"  ItemsSource="{Binding AllLeftMenuViews}" SelectedItem="{Binding SelectedOption}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Title}" Margin="3 10" FontSize="25" Foreground="White" FontWeight="Bold" Style="{StaticResource MaterialDesignDataGridTextColumnStyle}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
             </Grid>
         </Grid>

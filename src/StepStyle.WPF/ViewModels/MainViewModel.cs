@@ -9,14 +9,14 @@ namespace StepStyle.WPF.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        private readonly ReservationView _reservationView;
-        public MainViewModel(ReservationView reservationView)
+        public IEnumerable<ILeftMenuView> AllLeftMenuViews { get; }
+        public MainViewModel(IEnumerable<ILeftMenuView> allLeftMenuViews)
         {
-            _reservationView = reservationView;
+            AllLeftMenuViews = allLeftMenuViews;
         }
 
-        int selectedOption=1;
-        public int SelectedOption
+        ILeftMenuView selectedOption;
+        public ILeftMenuView SelectedOption
         {
             get
             {
@@ -25,10 +25,7 @@ namespace StepStyle.WPF.ViewModels
             set
             {
                 selectedOption = value;
-                if (selectedOption ==0)
-                {
-                    _reservationView.ShowDialog();
-                }
+                OnPropertyChanged();
             }
         }
     }

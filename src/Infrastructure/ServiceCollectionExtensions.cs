@@ -1,6 +1,8 @@
 ﻿using Application.Repositories;
+using Application.Services;
 using Domain;
 using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,6 +21,7 @@ namespace Infrastructure
                 Directory.CreateDirectory(dbPath);
             }
             services.AddDbContext<ShoeDbContext>(options => options.UseSqlite($"Data Source={Path.Combine(dbPath, "shoes.db")}"));
+            services.AddScoped<IMigrationService, MigrationService>();
             return services;
         }
     }

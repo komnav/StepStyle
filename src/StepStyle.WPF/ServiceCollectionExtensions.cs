@@ -23,6 +23,9 @@ namespace StepStyle.WPF
             services.AddViewModels();
             services.AddApplicationServices();
             services.AddInfrastructureServices();
+
+            services.AddSingleton<ILeftMenuView, ReservationView>();
+
             return services;
         }
 

@@ -20,6 +20,7 @@ namespace StepStyle.WPF.ViewModels
         public ReservationViewModel(IReservationService reservationService)
         {
             _typeOfCatamaran = reservationService;
+            CatamaranTypes = Enum.GetValues(typeof(CatamaranType)).Cast<CatamaranType>().ToList();
         }
 
         public DateTime Date { get; set; } = DateTime.Now;
@@ -29,17 +30,26 @@ namespace StepStyle.WPF.ViewModels
         public string PhoneNumber { get; set; }
         public string PassportSeries { get; set; }
         public string PassportNumber { get; set; }
+
+        public List<CatamaranType> CatamaranTypes { get; set; }
         public void SaveMethod()
         {
-            Reservation reservation = new Reservation();
-            reservation.Id = Id;
-            reservation.ClientName = ClientName;
-            reservation.PhoneNumber = PhoneNumber;
-            reservation.PassportSeries = PassportSeries;
-            reservation.PassportNumber = PassportNumber;
-            reservation.Date = Date;
-            reservation.TypeOfCatamaran = Catamaran;
-            _typeOfCatamaran.Create(reservation);
+            try
+            {
+                Reservation reservation = new Reservation();
+                reservation.Id = Id;
+                reservation.ClientName = ClientName;
+                reservation.PhoneNumber = PhoneNumber;
+                reservation.PassportSeries = PassportSeries;
+                reservation.PassportNumber = PassportNumber;
+                reservation.Date = Date;
+                reservation.TypeOfCatamaran = Catamaran;
+                _typeOfCatamaran.Create(reservation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         ICommand save;
