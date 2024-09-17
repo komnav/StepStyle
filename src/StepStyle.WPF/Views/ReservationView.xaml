@@ -7,7 +7,16 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="ModelCatamarans" Height="600" Width="800">
-
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <!-- <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />-->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
 
         <Grid.RowDefinitions>
@@ -16,7 +25,10 @@
         </Grid.RowDefinitions>
 
 
-        <TextBlock Grid.Row="0" Text="Новая бронь" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+        <TextBlock Grid.Row="0" Text="Новая бронь" FontSize="30" FontWeight="Bold" 
+         HorizontalAlignment="Center" Margin="0,20,0,20"
+         Foreground="{DynamicResource MaterialDesignBody}"/>
+
 
 
         <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400">
@@ -26,7 +38,7 @@
 
 
             <Label Content="Время:"/>
-            <ComboBox Name="TimeComboBox" Margin="0,0,0,10">
+            <ComboBox Name="TimeComboBox" Margin="0,0,0,10" Style="{StaticResource MaterialDesignComboBox}">
                 <ComboBoxItem Content="10:00"/>
                 <ComboBoxItem Content="12:00"/>
                 <ComboBoxItem Content="14:00"/>
@@ -36,7 +48,7 @@
 
 
             <Label Content="Тип катамарана:"/>
-            <ComboBox Name="CatamaranTypeComboBox" Margin="0,0,0,10">
+            <ComboBox Name="CatamaranTypeComboBox" Margin="0,0,0,10"  Style="{StaticResource MaterialDesignComboBox}">
                 <ComboBoxItem Content="Двухместный"/>
                 <ComboBoxItem Content="Трёхместный"/>
                 <ComboBoxItem Content="Четырёхместный"/>
@@ -44,22 +56,22 @@
 
 
             <Label Content="ФИО арендатора:"/>
-            <TextBox Name="ClientNameTextBox" Margin="0,0,0,10"/>
+            <TextBox Name="ClientNameTextBox" Margin="0,0,0,10"  Style="{StaticResource MaterialDesignTextBox}"/>
 
 
             <Label Content="Номер телефона:"/>
-            <TextBox Name="PhoneNumberTextBox" Margin="0,0,0,10"/>
+            <TextBox Name="PhoneNumberTextBox" Margin="0,0,0,10"  Style="{StaticResource MaterialDesignTextBox}"/>
 
 
             <Label Content="Серия паспорта:"/>
-            <TextBox Name="PassportSeriesTextBox" Margin="0,0,0,10"/>
+            <TextBox Name="PassportSeriesTextBox" Margin="0,0,0,10"  Style="{StaticResource MaterialDesignTextBox}"/>
 
 
             <Label Content="Номер паспорта:"/>
-            <TextBox Name="PassportNumberTextBox" Margin="0,0,0,10"/>
+            <TextBox Name="PassportNumberTextBox" Margin="0,0,0,10"  Style="{StaticResource MaterialDesignTextBox}"/>
 
 
-            <Button Content="Добавить бронь" Width="150" Height="40" HorizontalAlignment="Center" />
+            <Button Command="{Binding Save}" Content="Добавить бронь" Width="150" Height="40" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignRaisedButton}"/>
         </StackPanel>
     </Grid>
 </Window>

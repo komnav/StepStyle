@@ -13,15 +13,7 @@ namespace Infrastructure
     {
         public ShoeDbContext(DbContextOptions options) : base(options)
         {
-            if (!Users.Any())
-            {
-                Users.Add(new User
-                {
-                    UserName = "admin",
-                    Password="admin"    
-                });
-                SaveChanges();
-            }
+          
         }
 
         public DbSet<User> Users { get; set; }

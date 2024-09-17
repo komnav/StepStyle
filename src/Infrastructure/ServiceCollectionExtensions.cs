@@ -1,4 +1,5 @@
 ﻿using Application.Repositories;
+using Domain;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +12,13 @@ namespace Infrastructure
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IReservationRepository, ReservationRepository>();
-            services.AddDbContext<ShoeDbContext>(options => options.UseSqlite("Data Source=shoes.db"));
+            var appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var dbPath = Path.Combine(appDataFolder, "StepStyle");
+            if (!Directory.Exists(dbPath))
+            {
+                Directory.CreateDirectory(dbPath);
+            }
+            services.AddDbContext<ShoeDbContext>(options => options.UseSqlite($"Data Source={Path.Combine(dbPath, "shoes.db")}"));
             return services;
         }
     }

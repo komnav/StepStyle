@@ -23,10 +23,23 @@ namespace StepStyle.WPF.ViewModels
         }
 
         public DateTime Date { get; set; } = DateTime.Now;
-
+        public int Id { get; set; }
+        public CatamaranType Catamaran { get; set; }
+        public string ClientName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string PassportSeries { get; set; }
+        public string PassportNumber { get; set; }
         public void SaveMethod()
         {
-
+            Reservation reservation = new Reservation();
+            reservation.Id = Id;
+            reservation.ClientName = ClientName;
+            reservation.PhoneNumber = PhoneNumber;
+            reservation.PassportSeries = PassportSeries;
+            reservation.PassportNumber = PassportNumber;
+            reservation.Date = Date;
+            reservation.TypeOfCatamaran = Catamaran;
+            _typeOfCatamaran.Create(reservation);
         }
 
         ICommand save;
