@@ -13,10 +13,11 @@ namespace Infrastructure
     {
         public ShoeDbContext(DbContextOptions options) : base(options)
         {
-          
+
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
         //public DbSet<Shoe> Shoes { get; set; }
         //public DbSet<Supplier> Suppliers { get; set; }
 

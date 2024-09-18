@@ -1,4 +1,5 @@
-﻿using StepStyle.WPF.ViewModels;
+﻿using MaterialDesignThemes.Wpf;
+using StepStyle.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,5 +28,6 @@ namespace StepStyle.WPF.Views
         }
 
         public string Title => "Редактирование брони";
+
     }
 }

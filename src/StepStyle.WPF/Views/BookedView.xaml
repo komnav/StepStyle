@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="StepStyle.WPF.Views.BookedView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StepStyle.WPF.Views"
+        mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:Height="600" d:Width="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <!-- <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />-->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+ 
+        <Grid Background="White">
+            <!-- Определение строк -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--     <Grid Grid.Row="0" Background="White">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
+            <Label Content="Filter by Catamaran Type:" VerticalAlignment="Center"/>
+            <ComboBox Name="CatamaranFilterComboBox" Width="150" Margin="10,0,0,0">
+                <ComboBoxItem Content="All" IsSelected="True"/>
+                <ComboBoxItem Content="Two-seater"/>
+                <ComboBoxItem Content="Three-seater"/>
+                <ComboBoxItem Content="Four-seater"/>
+            </ComboBox>
+        </StackPanel>
+    </Grid> -->
+            <Grid Grid.Row="0" Background="#667AEA">
+                
+                <TextBlock Margin="10" FontSize="25" Foreground="White" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Center">
+                    Просмотр забронированного
+                </TextBlock>
+            </Grid>
+            <Grid Grid.Row="1" Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox Margin="10"
+                      materialDesign:HintAssist.Hint="Тип катамарана"  SelectedItem="{Binding Catamaran, Mode=TwoWay}" 
+                      ItemsSource="{Binding CatamaranTypes}" Style="{StaticResource MaterialDesignFloatingHintComboBox}" >
+                </ComboBox>
+                <Button Content="Обновить" Grid.Column="1" Margin="10" Background="#667AEA" BorderThickness="0" Command="{Binding Refresh}"/>
+            </Grid>
+            <DataGrid Grid.Row="2" Margin="0 0 10 0" ItemsSource="{Binding AllReservations}" IsReadOnly="True" >
+
+            </DataGrid>
+        </Grid>
+    
+
+
+    </Grid>
+</UserControl>

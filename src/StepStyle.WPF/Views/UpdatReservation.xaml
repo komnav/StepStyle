@@ -26,43 +26,36 @@
 
 
         <TextBlock Grid.Row="0" Text="Новая бронь" FontSize="30" FontWeight="Bold" 
-       HorizontalAlignment="Center" Margin="0,20,0,20"
-       Foreground="{DynamicResource MaterialDesignBody}"/>
+         HorizontalAlignment="Center" Margin="0,20,0,20"
+         Foreground="{DynamicResource MaterialDesignBody}"/>
 
 
 
-        <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400">
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="50" >
 
-            <Label Content="Дата:" Margin="0" FontWeight="Bold"/>
-            <DatePicker SelectedDate="{Binding Date}" />
+            <Grid  Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <DatePicker Margin="0 0 10 0" materialDesign:HintAssist.Hint="Дата" SelectedDate="{Binding Date}" 
+                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
 
+                <materialDesign:TimePicker Grid.Column="1" Margin="10 0 0 0" materialDesign:HintAssist.Hint="Время"
+        SelectedTime="{Binding Time}" Is24Hours="True" Style="{StaticResource MaterialDesignFloatingHintTimePicker}"/>
+            </Grid>
 
-            <!--<Label Content="Тип катамарана:"/>-->
-            <ComboBox MinWidth="72" 
-                    materialDesign:HintAssist.Hint="Тип катамаран" FontWeight="Bold" SelectedItem="{Binding Catamaran, Mode=TwoWay}" 
-                    ItemsSource="{Binding CatamaranTypes}" Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
-
-
-            <Label Content="ФИО арендатора:" FontWeight="Bold"/>
-            <TextBox Text="{Binding ClientName}"   Style="{StaticResource MaterialDesignTextBox}"/>
-
-
-            <Label Content="Номер телефона:" FontWeight="Bold"/>
-            <TextBox Text="{Binding PhoneNumber}"   Style="{StaticResource MaterialDesignTextBox}"/>
-
-
-            <Label Content="Серия паспорта:" FontWeight="Bold"/>
-            <TextBox Text="{Binding PassportSeries}"    Style="{StaticResource MaterialDesignTextBox}"/>
-
-
-            <Label Content="Номер паспорта:" FontWeight="Bold"/>
-            <TextBox Text="{Binding PassportNumber}"  Margin="0 0 10 10" Style="{StaticResource MaterialDesignTextBox}"/>
-
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 10 0 0">
-                <Button Command="{Binding Delete}" Content="Изменить бронь" Width="150" Height="45"
-      Foreground="White" Style="{StaticResource MaterialDesignRaisedButton}" FontSize="15" Margin="0 0 100 0"/>
-                <Button Command="{Binding Delete}" Content="Удалить запись" Width="150" Height="45"
+            <ComboBox  Margin="10"
+                      materialDesign:HintAssist.Hint="Тип катамарана"  SelectedItem="{Binding Catamaran, Mode=TwoWay}" 
+                      ItemsSource="{Binding CatamaranTypes}" Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
+            <TextBox Margin="10" Text="{Binding ClientName}" materialDesign:HintAssist.Hint="ФИО арендатора"  Style="{StaticResource MaterialDesignTextBox}"/>
+            <TextBox Margin="10" Text="{Binding PhoneNumber}" materialDesign:HintAssist.Hint="Номер телефона:"   Style="{StaticResource MaterialDesignTextBox}"/>
+            <TextBox Margin="10" Text="{Binding PassportSeries}" materialDesign:HintAssist.Hint="Серия паспорта:"    Style="{StaticResource MaterialDesignTextBox}"/>
+            <TextBox Margin="10" Text="{Binding PassportNumber}"  materialDesign:HintAssist.Hint="Номер паспорта:"   Style="{StaticResource MaterialDesignTextBox}"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0">
+                <Button Command="{Binding Delete}" Content="Изменить бронь" 
+      Foreground="White" Style="{StaticResource MaterialDesignRaisedButton}" FontSize="15" Margin="0 0 20 0"/>
+                <Button Command="{Binding Delete}" Content="Удалить запись" 
                     Background="Red" Foreground="White" Style="{StaticResource MaterialDesignRaisedButton}" FontSize="15" />
             </StackPanel>
         </StackPanel>

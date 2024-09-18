@@ -20,6 +20,7 @@ namespace StepStyle.WPF.ViewModels
             CatamaranTypes = Enum.GetValues(typeof(CatamaranType)).Cast<CatamaranType>().ToList();
         }
         public DateTime Date { get; set; } = DateTime.Now;
+        public DateTime Time { get; set; } = DateTime.Now;
         public int Id { get; set; }
         public CatamaranType Catamaran { get; set; }
         public string ClientName { get; set; }
@@ -38,7 +39,7 @@ namespace StepStyle.WPF.ViewModels
                 reservation.PhoneNumber = PhoneNumber;
                 reservation.PassportSeries = PassportSeries;
                 reservation.PassportNumber = PassportNumber;
-                reservation.Date = Date;
+                reservation.Date = new DateTime(DateOnly.FromDateTime(Date), TimeOnly.FromDateTime(Time));
                 reservation.TypeOfCatamaran = Catamaran;
                 _reservationService.Update(reservation);
             }
@@ -49,7 +50,14 @@ namespace StepStyle.WPF.ViewModels
         }
         public void DeleteMethod()
         {
-            _reservationService.Delete(Id);
+            try
+            {
+                _reservationService.Delete(Id);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Could not delete {ex}");
+            }
         }
         ICommand delete;
         public ICommand DeleteCommand

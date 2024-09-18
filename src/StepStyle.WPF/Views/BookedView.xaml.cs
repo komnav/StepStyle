@@ -1,10 +1,6 @@
-﻿using MaterialDesignThemes.Wpf;
-using Microsoft.EntityFrameworkCore;
-using StepStyle.WPF.ViewModels;
+﻿using StepStyle.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,16 +16,21 @@ using System.Windows.Shapes;
 namespace StepStyle.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for ModelCatamarans.xaml
+    /// Interaction logic for BookedView.xaml
     /// </summary>
-    public partial class ReservationView : UserControl, ILeftMenuView
+    public partial class BookedView : UserControl, ILeftMenuView
     {
-        public ReservationView(ReservationViewModel viewModel)
+        public BookedView(GetReservationsViewModel get)
         {
             InitializeComponent();
-            DataContext = viewModel;
+            DataContext = get;
         }
 
-        public string Title => "Новая бронь";
+        public string Title => "Просмотрь забронированного";
+
+        private void BookingsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

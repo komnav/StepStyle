@@ -31,35 +31,28 @@
 
 
 
-        <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400">
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" Margin="50" >
 
-            <Label Content="Дата:" Margin="0" FontWeight="Bold"/>
-            <DatePicker SelectedDate="{Binding Date}" />
+            <Grid  Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <DatePicker Margin="0 0 10 0" materialDesign:HintAssist.Hint="Дата" SelectedDate="{Binding Date}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
 
-            
-            <!--<Label Content="Тип катамарана:"/>-->
-            <ComboBox MinWidth="72" 
-                      materialDesign:HintAssist.Hint="Тип катамаран" FontWeight="Bold" SelectedItem="{Binding Catamaran, Mode=TwoWay}" 
+                <materialDesign:TimePicker Grid.Column="1" Margin="10 0 0 0" materialDesign:HintAssist.Hint="Время"
+                                           SelectedTime="{Binding Time}" Is24Hours="True" Style="{StaticResource MaterialDesignFloatingHintTimePicker}" />
+
+            </Grid>
+            <ComboBox  Margin="10"
+                      materialDesign:HintAssist.Hint="Тип катамарана"  SelectedItem="{Binding Catamaran, Mode=TwoWay}" 
                       ItemsSource="{Binding CatamaranTypes}" Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
-
-
-            <Label Content="ФИО арендатора:" FontWeight="Bold"/>
-            <TextBox Text="{Binding ClientName}"   Style="{StaticResource MaterialDesignTextBox}"/>
-
-
-            <Label Content="Номер телефона:" FontWeight="Bold"/>
-            <TextBox Text="{Binding PhoneNumber}"   Style="{StaticResource MaterialDesignTextBox}"/>
-
-
-            <Label Content="Серия паспорта:" FontWeight="Bold"/>
-            <TextBox Text="{Binding PassportSeries}"    Style="{StaticResource MaterialDesignTextBox}"/>
-
-
-            <Label Content="Номер паспорта:" FontWeight="Bold"/>
-            <TextBox Text="{Binding PassportNumber}"  Margin="0 0 10 10" Style="{StaticResource MaterialDesignTextBox}"/>
-
-
-            <Button Command="{Binding Save}" Content="Добавить бронь" Width="150" Height="40" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignRaisedButton}"/>
+            <TextBox Margin="10" Text="{Binding ClientName}" materialDesign:HintAssist.Hint="ФИО арендатора"  Style="{StaticResource MaterialDesignTextBox}"/>
+            <TextBox Margin="10" Text="{Binding PhoneNumber}" materialDesign:HintAssist.Hint="Номер телефона:"   Style="{StaticResource MaterialDesignTextBox}"/>
+            <TextBox Margin="10" Text="{Binding PassportSeries}" materialDesign:HintAssist.Hint="Серия паспорта:"    Style="{StaticResource MaterialDesignTextBox}"/>
+            <TextBox Margin="10" Text="{Binding PassportNumber}"  materialDesign:HintAssist.Hint="Номер паспорта:"   Style="{StaticResource MaterialDesignTextBox}"/>
+            <Button Margin="10" Command="{Binding Save}" Content="Добавить бронь" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignRaisedButton}"/>
         </StackPanel>
+        
     </Grid>
 </UserControl>

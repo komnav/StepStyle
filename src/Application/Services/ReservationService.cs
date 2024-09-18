@@ -10,25 +10,30 @@ namespace Application.Services
 {
     public class ReservationService : IReservationService
     {
-        private readonly IReservationRepository _typeOfCatamaran;
-        public ReservationService(IReservationRepository typeOfCatamaran)
+        private readonly IReservationRepository reservationRepository;
+        public ReservationService(IReservationRepository reservationRepository)
         {
-            _typeOfCatamaran = typeOfCatamaran;
+            this.reservationRepository = reservationRepository;
         }
 
         public void Create(Reservation reservation)
         {
-            _typeOfCatamaran.Create(reservation);
+            reservationRepository.Create(reservation);
         }
 
         public void Delete(int id)
         {
-            _typeOfCatamaran.Delete(id);
+            reservationRepository.Delete(id);
+        }
+
+        public List<Reservation> GetAll(CatamaranType catamaran)
+        {
+            return reservationRepository.GetAll(catamaran);
         }
 
         public void Update(Reservation reservation)
         {
-            _typeOfCatamaran.Update(reservation);
+            reservationRepository.Update(reservation);
         }
     }
 }

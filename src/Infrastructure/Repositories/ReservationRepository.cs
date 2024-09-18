@@ -1,5 +1,6 @@
 ﻿using Application.Repositories;
 using Domain;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,14 @@ namespace Infrastructure.Repositories
         {
             _context.Remove(id);
             _context.SaveChanges();
+        }
+
+        public List<Reservation> GetAll(CatamaranType catamaran)
+        {
+
+            return _context.Reservations
+                .Where(x => x.TypeOfCatamaran == catamaran)
+                .ToList();
         }
 
         public void Update(Reservation reservation)
