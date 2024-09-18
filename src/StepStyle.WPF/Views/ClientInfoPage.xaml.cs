@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StepStyle.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +18,13 @@ namespace StepStyle.WPF.Views
     /// <summary>
     /// Interaction logic for ClientInfoPage.xaml
     /// </summary>
-    public partial class ClientInfoPage : Window
+    public partial class ClientInfoPage : UserControl, ILeftMenuView
     {
         public ClientInfoPage()
         {
             InitializeComponent();
         }
+
+        public string Title => "Информация для клиентов";
     }
 }

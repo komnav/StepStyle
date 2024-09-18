@@ -1,28 +1,24 @@
-﻿using Application.Repositories;
-using Application.Services;
+﻿using Application.Services;
 using Domain;
 using StepStyle.WPF.Helpers;
-using StepStyle.WPF.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
+using System.Windows;
 
 namespace StepStyle.WPF.ViewModels
 {
-    public class ReservationViewModel : BaseViewModel
+    public class UpdateReservation : BaseViewModel
     {
-        private readonly IReservationService _typeOfCatamaran;
-
-        public ReservationViewModel(IReservationService reservationService)
+        private readonly IReservationService _reservationService;
+        public UpdateReservation(IReservationService reservationService)
         {
-            _typeOfCatamaran = reservationService;
+            _reservationService = reservationService;
             CatamaranTypes = Enum.GetValues(typeof(CatamaranType)).Cast<CatamaranType>().ToList();
         }
-
         public DateTime Date { get; set; } = DateTime.Now;
         public int Id { get; set; }
         public CatamaranType Catamaran { get; set; }
@@ -30,9 +26,9 @@ namespace StepStyle.WPF.ViewModels
         public string PhoneNumber { get; set; }
         public string PassportSeries { get; set; }
         public string PassportNumber { get; set; }
-
         public List<CatamaranType> CatamaranTypes { get; set; }
-        public void SaveMethod()
+
+        public void UpdateMethod()
         {
             try
             {
@@ -44,27 +40,43 @@ namespace StepStyle.WPF.ViewModels
                 reservation.PassportNumber = PassportNumber;
                 reservation.Date = Date;
                 reservation.TypeOfCatamaran = Catamaran;
-                _typeOfCatamaran.Create(reservation);
-                MessageBox.Show("Катамаран забронироватнь");
+                _reservationService.Update(reservation);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
-        ICommand save;
-        public ICommand Save
+        public void DeleteMethod()
+        {
+            _reservationService.Delete(Id);
+        }
+        ICommand delete;
+        public ICommand DeleteCommand
         {
             get
             {
-                if (save == null)
+                if (delete == null)
                 {
-                    save = new RelayCommand((obj) => SaveMethod());
+                    update = new RelayCommand((obj) => DeleteMethod());
+                }
+                return delete;
+            }
+        }
+
+        ICommand update;
+        public ICommand Update
+        {
+            get
+            {
+                if (update == null)
+                {
+                    update = new RelayCommand((obj) => UpdateMethod());
                 }
 
-                return save;
+                return update;
             }
         }
     }
 }
+

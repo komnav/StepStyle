@@ -21,5 +21,17 @@ namespace Infrastructure.Repositories
             _context.Add(reservation);
             _context.SaveChanges();
         }
+
+        public void Delete(int id)
+        {
+            _context.Remove(id);
+            _context.SaveChanges();
+        }
+
+        public void Update(Reservation reservation)
+        {
+            _context.Update(reservation);
+            _context.SaveChanges();
+        }
     }
 }

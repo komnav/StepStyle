@@ -25,6 +25,8 @@ namespace StepStyle.WPF
             services.AddInfrastructureServices();
 
             services.AddSingleton<ILeftMenuView, ReservationView>();
+            services.AddSingleton<ILeftMenuView, UpdatReservation>();
+            services.AddSingleton<ILeftMenuView, ClientInfoPage>();
 
             return services;
         }

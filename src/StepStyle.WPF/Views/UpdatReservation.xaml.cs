@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StepStyle.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +18,14 @@ namespace StepStyle.WPF.Views
     /// <summary>
     /// Interaction logic for UpdatReservation.xaml
     /// </summary>
-    public partial class UpdatReservation : Window
+    public partial class UpdatReservation : UserControl, ILeftMenuView
     {
-        public UpdatReservation()
+        public UpdatReservation(UpdateReservation update)
         {
             InitializeComponent();
+            DataContext = update;
         }
+
+        public string Title => "Редактирование брони";
     }
 }

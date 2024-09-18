@@ -20,5 +20,15 @@ namespace Application.Services
         {
             _typeOfCatamaran.Create(reservation);
         }
+
+        public void Delete(int id)
+        {
+            _typeOfCatamaran.Delete(id);
+        }
+
+        public void Update(Reservation reservation)
+        {
+            _typeOfCatamaran.Update(reservation);
+        }
     }
 }

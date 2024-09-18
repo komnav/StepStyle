@@ -39,7 +39,7 @@
             
             <!--<Label Content="Тип катамарана:"/>-->
             <ComboBox MinWidth="72" 
-                      materialDesign:HintAssist.Hint="Тип катамарана" FontWeight="Bold" SelectedItem="{Binding Catamaran, Mode=TwoWay}" 
+                      materialDesign:HintAssist.Hint="Тип катамаран" FontWeight="Bold" SelectedItem="{Binding Catamaran, Mode=TwoWay}" 
                       ItemsSource="{Binding CatamaranTypes}" Style="{StaticResource MaterialDesignFloatingHintComboBox}" />
 
 

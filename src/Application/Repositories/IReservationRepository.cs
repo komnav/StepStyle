@@ -10,5 +10,7 @@ namespace Application.Repositories
     public interface IReservationRepository
     {
         public void Create(Reservation reservation);
+        public void Update(Reservation reservation);
+        public void Delete(int id);
     }
 }

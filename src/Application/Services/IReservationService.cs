@@ -10,6 +10,7 @@ namespace Application.Services
     public interface IReservationService
     {
         public void Create(Reservation reservation);
-        
+        public void Update(Reservation reservation);
+        public void Delete(int id);
     }
 }
