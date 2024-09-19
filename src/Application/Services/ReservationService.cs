@@ -26,7 +26,7 @@ namespace Application.Services
             reservationRepository.Delete(id);
         }
 
-        public List<Reservation> GetAll(CatamaranType catamaran)
+        public List<Reservation> GetAll(CatamaranType? catamaran)
         {
             return reservationRepository.GetAll(catamaran);
         }

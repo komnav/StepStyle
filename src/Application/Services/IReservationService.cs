@@ -12,7 +12,7 @@ namespace Application.Services
         public void Create(Reservation reservation);
         public void Update(Reservation reservation);
         public void Delete(int id);
-        public List<Reservation> GetAll(CatamaranType catamaranType);
+        public List<Reservation> GetAll(CatamaranType? catamaranType);
 
     }
 }

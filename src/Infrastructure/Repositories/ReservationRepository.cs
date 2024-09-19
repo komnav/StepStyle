@@ -1,11 +1,5 @@
 ﻿using Application.Repositories;
 using Domain;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
@@ -29,8 +23,9 @@ namespace Infrastructure.Repositories
             _context.SaveChanges();
         }
 
-        public List<Reservation> GetAll(CatamaranType catamaran)
+        public List<Reservation> GetAll(CatamaranType? catamaran)
         {
+           
 
             return _context.Reservations
                 .Where(x => x.TypeOfCatamaran == catamaran)

@@ -5,6 +5,7 @@ using StepStyle.WPF.Helpers;
 using StepStyle.WPF.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,13 +27,14 @@ namespace StepStyle.WPF.ViewModels
         public DateTime Date { get; set; } = DateTime.Now;
         public DateTime Time { get; set; } = DateTime.Now;
         public int Id { get; set; }
-        public CatamaranType Catamaran { get; set; }
+        public CatamaranType? Catamaran { get; set; }
         public string ClientName { get; set; }
         public string PhoneNumber { get; set; }
         public string PassportSeries { get; set; }
         public string PassportNumber { get; set; }
-
+        
         public List<CatamaranType> CatamaranTypes { get; set; }
+        
         public void SaveMethod()
         {
             try

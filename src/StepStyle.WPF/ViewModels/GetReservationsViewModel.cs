@@ -15,7 +15,9 @@ namespace StepStyle.WPF.ViewModels
         public GetReservationsViewModel(IReservationService reservationService)
         {
             _reservationService = reservationService;
+            
             CatamaranTypes = Enum.GetValues(typeof(CatamaranType)).Cast<CatamaranType>().ToList();
+           
             RefreshMethod();
         }
 
@@ -25,12 +27,13 @@ namespace StepStyle.WPF.ViewModels
         public void RefreshMethod()
         {
             AllReservations.Clear();
+
+
             var allReservation = _reservationService.GetAll(SelectedCatamaranType);
             foreach (var reservation in allReservation)
             {
                 AllReservations.Add(reservation);
             }
-
         }
         ICommand refresh;
         public ICommand Refresh
