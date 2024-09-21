@@ -32,6 +32,7 @@ namespace StepStyle.WPF.ViewModels
             }
             else
             {
+               
                 MessageBox.Show("Не правильный логин или пароль");
             }
         }

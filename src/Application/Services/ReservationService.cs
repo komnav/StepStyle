@@ -21,9 +21,9 @@ namespace Application.Services
             reservationRepository.Create(reservation);
         }
 
-        public void Delete(int id)
+        public void Delete(Reservation reservation)
         {
-            reservationRepository.Delete(id);
+            reservationRepository.Delete(reservation);
         }
 
         public List<Reservation> GetAll(CatamaranType? catamaran)

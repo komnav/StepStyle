@@ -25,6 +25,8 @@
         </Grid.RowDefinitions>
 
 
+        
+        
         <TextBlock Grid.Row="0" Text="Новая бронь" FontSize="30" FontWeight="Bold" 
          HorizontalAlignment="Center" Margin="0,20,0,20"
          Foreground="{DynamicResource MaterialDesignBody}"/>

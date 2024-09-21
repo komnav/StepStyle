@@ -17,9 +17,9 @@ namespace Infrastructure.Repositories
             _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(Reservation reservation)
         {
-            _context.Remove(id);
+            _context.Reservations.Remove(reservation);
             _context.SaveChanges();
         }
 

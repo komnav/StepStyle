@@ -17,7 +17,7 @@
                 <!-- <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
+
     </UserControl.Resources>
     <Grid>
 
@@ -29,23 +29,12 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!--     <Grid Grid.Row="0" Background="White">
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
-            <Label Content="Filter by Catamaran Type:" VerticalAlignment="Center"/>
-            <ComboBox Name="CatamaranFilterComboBox" Width="150" Margin="10,0,0,0">
-                <ComboBoxItem Content="All" IsSelected="True"/>
-                <ComboBoxItem Content="Two-seater"/>
-                <ComboBoxItem Content="Three-seater"/>
-                <ComboBoxItem Content="Four-seater"/>
-            </ComboBox>
-        </StackPanel>
-    </Grid> -->
             <Grid Grid.Row="0" Background="#667AEA">
-
                 <TextBlock Margin="10" FontSize="25" Foreground="White" HorizontalAlignment="Center" FontWeight="Bold" VerticalAlignment="Center">
                     Просмотр забронированного
                 </TextBlock>
             </Grid>
+
             <Grid Grid.Row="1" Background="White">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -55,12 +44,36 @@
 
                 <ComboBox Margin="10" 
           materialDesign:HintAssist.Hint="Тип катамарана"  SelectedItem="{Binding SelectedCatamaranType, Mode=TwoWay}" 
-          ItemsSource="{Binding CatamaranTypes}" Style="{StaticResource MaterialDesignFloatingHintComboBox}" >
+          ItemsSource="{Binding CatamaranTypes}" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
                 </ComboBox>
 
                 <Button Content="Обновить" Grid.Column="1" Margin="10" Background="#667AEA" BorderThickness="0" Command="{Binding Refresh}"/>
             </Grid>
+
             <DataGrid Grid.Row="2" Margin="0 0 10 0" ItemsSource="{Binding AllReservations}" IsReadOnly="True" >
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Редактировать">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="✏️" Command="{Binding DataContext.Update, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+  CommandParameter="{Binding}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Удалить">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="🗑️" Command="{Binding DataContext.Delete, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+CommandParameter="{Binding}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
 
             </DataGrid>
         </Grid>

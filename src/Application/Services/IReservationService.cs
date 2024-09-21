@@ -11,7 +11,7 @@ namespace Application.Services
     {
         public void Create(Reservation reservation);
         public void Update(Reservation reservation);
-        public void Delete(int id);
+        public void Delete(Reservation reservation);
         public List<Reservation> GetAll(CatamaranType? catamaranType);
 
     }
