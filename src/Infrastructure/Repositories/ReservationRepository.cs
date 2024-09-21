@@ -25,7 +25,10 @@ namespace Infrastructure.Repositories
 
         public List<Reservation> GetAll(CatamaranType? catamaran)
         {
-           
+            if (catamaran == null)
+            {
+                return _context.Reservations.ToList();
+            }
 
             return _context.Reservations
                 .Where(x => x.TypeOfCatamaran == catamaran)

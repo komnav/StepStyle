@@ -9,7 +9,7 @@
              d:Height="600" d:Width="800" >
     <UserControl.Resources>
         <ResourceDictionary>
-            <local:CatamaranTypeConverter x:Key="CatamaranTypeConverter"/>
+            
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
@@ -43,7 +43,7 @@
 
 
                 <ComboBox Margin="10" 
-          materialDesign:HintAssist.Hint="Тип катамарана"  SelectedItem="{Binding SelectedCatamaranType, Mode=TwoWay}" 
+          materialDesign:HintAssist.Hint="Тип катамарана" materialDesign:TextFieldAssist.HasClearButton="True" SelectedItem="{Binding SelectedCatamaranType, Mode=TwoWay}" 
           ItemsSource="{Binding CatamaranTypes}" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
                 </ComboBox>
 

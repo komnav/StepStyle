@@ -27,7 +27,7 @@ namespace StepStyle.WPF.ViewModels
         }
 
         public List<CatamaranType> CatamaranTypes { get; set; }
-        public CatamaranType SelectedCatamaranType { get; set; }
+        public CatamaranType? SelectedCatamaranType { get; set; }
         public ObservableCollection<Reservation> AllReservations { get; set; } = [];
         public void RefreshMethod()
         {

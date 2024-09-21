@@ -23,24 +23,106 @@ namespace StepStyle.WPF.ViewModels
             _typeOfCatamaran = reservationService;
             CatamaranTypes = Enum.GetValues(typeof(CatamaranType)).Cast<CatamaranType>().ToList();
         }
+        private DateTime date = DateTime.Now;
+        public DateTime Date
+        {
+            get
+            {
+                return date;
+            }
+            set
+            {
+                date = value;
+                OnPropertyChanged();
+            }
+        }
+        private DateTime time = DateTime.Now;
+        public DateTime Time
+        {
+            get
+            {
+                return time;
+            }
+            set
+            {
+                time = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public DateTime Date { get; set; } = DateTime.Now;
-        public DateTime Time { get; set; } = DateTime.Now;
-        public int Id { get; set; }
-        public CatamaranType? Catamaran { get; set; }
-        public string ClientName { get; set; }
-        public string PhoneNumber { get; set; }
-        public string PassportSeries { get; set; }
-        public string PassportNumber { get; set; }
-        
+        private CatamaranType? catamaran;
+        public CatamaranType? Catamaran
+        {
+            get
+            {
+                return catamaran;
+            }
+            set
+            {
+                catamaran = value;
+                OnPropertyChanged();
+            }
+        }
+        private string clientName;
+        public string ClientName
+        {
+            get
+            {
+                return clientName;
+            }
+            set
+            {
+                clientName = value;
+                OnPropertyChanged();
+            }
+        }
+        private string phoneNumber;
+        public string PhoneNumber
+        {
+            get
+            {
+                return phoneNumber;
+            }
+            set
+            {
+                phoneNumber = value;
+                OnPropertyChanged();
+            }
+        }
+        private string passportSeries;
+        public string PassportSeries
+        {
+            get
+            {
+                return passportSeries;
+            }
+            set
+            {
+                passportSeries = value;
+                OnPropertyChanged();
+            }
+        }
+        private string passportNumber;
+        public string PassportNumber
+        {
+            get
+            {
+                return passportSeries;
+            }
+            set
+            {
+                passportSeries = value;
+                OnPropertyChanged();
+            }
+        }
+
         public List<CatamaranType> CatamaranTypes { get; set; }
-        
+
         public void SaveMethod()
         {
             try
             {
                 Reservation reservation = new Reservation();
-                reservation.Id = Id;
                 reservation.ClientName = ClientName;
                 reservation.PhoneNumber = PhoneNumber;
                 reservation.PassportSeries = PassportSeries;
@@ -49,6 +131,7 @@ namespace StepStyle.WPF.ViewModels
                 reservation.TypeOfCatamaran = Catamaran;
                 _typeOfCatamaran.Create(reservation);
                 MessageBox.Show("Катамаран забронироватнь");
+                ClearMethod();
 
             }
             catch (Exception ex)
@@ -56,7 +139,17 @@ namespace StepStyle.WPF.ViewModels
                 MessageBox.Show(ex.Message);
             }
         }
-        
+        public void ClearMethod()
+        {
+            Catamaran = null;
+            ClientName = string.Empty;
+            PhoneNumber = string.Empty;
+            PassportNumber = string.Empty;
+            PassportSeries = string.Empty;
+            Date = DateTime.Now;
+            Time = DateTime.Now;
+        }
+
         ICommand save;
         public ICommand Save
         {
