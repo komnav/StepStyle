@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StepStyle.WPF", "src\StepSt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\Application\Application.csproj", "{073E0B7E-6DCC-4F01-A57B-4DBBFD36D630}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "README.md", "README.md", "{FBF1C2D2-E16C-4F8B-8BDF-9E80233A0212}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

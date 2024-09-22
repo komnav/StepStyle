@@ -32,9 +32,9 @@
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0" ></DropShadowEffect>
             </Border.Effect>
             <StackPanel>
-                <TextBox Text="{Binding UserName}" materialDesign:HintAssist.Hint="Введите логин" FontSize="18" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TextBox_TextChanged"/>
-                <TextBox Text="{Binding Password}" materialDesign:HintAssist.Hint="Введите пароль" FontSize="18" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <Button Command="{Binding LoginCommand}" Foreground="White" Content="Войты" Margin="0 20"  MaxWidth="300"  />
+                <TextBox Text="{Binding UserName}" materialDesign:HintAssist.Hint="Введите логин" materialDesign:TextFieldAssist.HasClearButton="True" FontSize="18" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TextBox_TextChanged"/>
+                <TextBox Text="{Binding Password}" materialDesign:HintAssist.Hint="Введите пароль" materialDesign:TextFieldAssist.HasClearButton="True" FontSize="18" Margin="10" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <Button Command="{Binding LoginCommand}" Foreground="White" Content="Войты" Margin="0 20"  MaxWidth="300" />
 
             </StackPanel>
         </Border>
